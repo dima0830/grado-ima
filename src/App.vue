@@ -34,7 +34,7 @@
         <span class="oro">{{ datos.titulo }}</span>.
       </p>
       <p v-if="personal.graduando" class="graduando revelar">
-        <span>Graduando</span>
+        <span>En honor a</span>
         {{ personal.graduando }}
       </p>
     </header>
