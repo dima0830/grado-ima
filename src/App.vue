@@ -3,8 +3,9 @@
   <Transition name="telon">
     <div v-if="!abierta" class="entrada" role="dialog" aria-modal="true" aria-labelledby="entrada-titulo">
       <div class="entrada-marco">
-        <div class="entrada-emblema"><Emblema /></div>
-        <p class="sobretitulo">{{ datos.institucion }}</p>
+        <div class="entrada-logo">
+          <img :src="logo" :alt="datos.institucion" width="382" height="162" />
+        </div>
         <h1 id="entrada-titulo" class="entrada-titulo">Ceremonia de Graduación</h1>
         <p class="entrada-promo">Promoción {{ datos.promocion }}</p>
         <p v-if="personal.para" class="entrada-para">
