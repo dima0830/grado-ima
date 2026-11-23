@@ -6,18 +6,18 @@ Invitación web (Vue 3 + Vite) publicada en GitHub Pages.
 
 - **Fecha, lugar, cupos y mensaje:** `src/datos.ts`
 - **Música:** `src/assets/audio/pompa-y-circunstancia.mp3` (Elgar, *Pompa y Circunstancia n.º 1*, grabación de la U.S. Marine Band, dominio público)
-- **Logo:** `src/assets/img/logo-ima.webp`
+- **Logo:** `src/assets/img/logo-ima-bandera.svg` (el primer logo de `logo-cv.vectorcraft`)
 
 ## Enlaces personalizados (opcional)
 
 Se puede enviar un enlace distinto a cada familia:
 
 ```
-https://dima0830.github.io/grado-ima/?para=Familia%20Pérez&graduando=Laura%20Pérez&cupos=4
+https://dima0830.github.io/grado-ima/?n=Laura+Camila&a=Pulido+Idárraga
 ```
 
-- `para`: aparece en la pantalla de entrada ("Invitación para…")
-- `graduando`: aparece en la portada
+- `n` y `a`: nombres y apellidos del graduando. La entrada dice "Invitación para la familia de <nombres>" y la portada muestra el nombre completo.
+- `para` y `graduando`: textos libres, por si se necesita otro texto
 - `cupos`: cambia "Invitación válida para N personas" (por defecto, 5)
 
 ## Desarrollo

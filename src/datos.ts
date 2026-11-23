@@ -30,13 +30,18 @@ export const datos = {
 
 /*
   Invitación personalizada por enlace (opcional):
-  …/grado-ima/?para=Familia%20Pérez&graduando=Laura%20Pérez&cupos=4
+  - Corto, por estudiante:  …/grado-ima/?n=José+Albeiro&a=Barrera+Álvarez
+      → entrada "Invitación para la familia de José Albeiro"
+      → portada "Graduando: José Albeiro Barrera Álvarez"
+  - Libre: …/grado-ima/?para=Familia+Pérez&graduando=Laura+Pérez&cupos=4
 */
 const q = new URLSearchParams(location.search);
-const limpiar = (v: string | null) => (v ?? "").trim().slice(0, 60);
+const limpiar = (v: string | null) => (v ?? "").replace(/\s+/g, " ").trim().slice(0, 60);
+const nombres = limpiar(q.get("n"));
+const apellidos = limpiar(q.get("a"));
 export const personal = {
-  para: limpiar(q.get("para")),
-  graduando: limpiar(q.get("graduando")),
+  para: limpiar(q.get("para")) || (nombres ? `la familia de ${nombres}` : ""),
+  graduando: limpiar(q.get("graduando")) || [nombres, apellidos].filter(Boolean).join(" "),
   cupos: Math.min(20, Math.max(1, Number(q.get("cupos")) || datos.cupos)),
 };
 

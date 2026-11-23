@@ -312,12 +312,9 @@ body {
   color: var(--oro);
 }
 .logo {
-  width: min(100%, 15rem);
+  width: min(100%, 16rem);
   margin: 2.4rem auto 0;
-  padding: 1rem 1.2rem;
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.4));
 }
 .logo img { display: block; width: 100%; height: auto; }
 

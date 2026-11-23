@@ -90,7 +90,7 @@
       <p class="mensaje">{{ datos.mensaje }}</p>
       <p class="felicidades">¡Felicitaciones, graduandos!</p>
       <div class="logo">
-        <img :src="logo" :alt="datos.institucion" width="640" height="275" loading="lazy" />
+        <img :src="logo" :alt="datos.institucion" width="382" height="162" loading="lazy" />
       </div>
     </section>
 
@@ -109,7 +109,7 @@ import Emblema from "./components/Emblema.vue";
 import CuentaRegresiva from "./components/CuentaRegresiva.vue";
 import BotonMusica from "./components/BotonMusica.vue";
 import { datos, personal, enlaceCalendario } from "./datos";
-import logo from "./assets/img/logo-ima.webp";
+import logo from "./assets/img/logo-ima-bandera.svg";
 import cancion from "./assets/audio/pompa-y-circunstancia.mp3";
 
 const abierta = ref(false);
