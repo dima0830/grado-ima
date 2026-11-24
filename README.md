@@ -13,7 +13,7 @@ Invitación web (Vue 3 + Vite) publicada en GitHub Pages.
 Se puede enviar un enlace distinto a cada familia:
 
 ```
-https://dima0830.github.io/grado-ima/?n=Laura+Camila&a=Pulido+Idárraga
+https://ima.innube.online/?n=Laura+Camila&a=Pulido+Idárraga
 ```
 
 - `n` y `a`: nombres y apellidos del graduando. La entrada dice "Invitación para la familia de <nombres>" y la portada muestra el nombre completo.

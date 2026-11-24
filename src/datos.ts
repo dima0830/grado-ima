@@ -30,10 +30,10 @@ export const datos = {
 
 /*
   Invitación personalizada por enlace (opcional):
-  - Corto, por estudiante:  …/grado-ima/?n=José+Albeiro&a=Barrera+Álvarez
+  - Corto, por estudiante:  https://ima.innube.online/?n=José+Albeiro&a=Barrera+Álvarez
       → entrada "Invitación para la familia de José Albeiro"
       → portada "Graduando: José Albeiro Barrera Álvarez"
-  - Libre: …/grado-ima/?para=Familia+Pérez&graduando=Laura+Pérez&cupos=4
+  - Libre: https://ima.innube.online/?para=Familia+Pérez&graduando=Laura+Pérez&cupos=4
 */
 const q = new URLSearchParams(location.search);
 const limpiar = (v: string | null) => (v ?? "").replace(/\s+/g, " ").trim().slice(0, 60);
