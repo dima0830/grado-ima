@@ -30,15 +30,32 @@ export const datos = {
 
 /*
   Invitación personalizada por enlace (opcional):
-  - Corto, por estudiante:  https://ima.innube.online/?n=José+Albeiro&a=Barrera+Álvarez
+  - Amigable, por estudiante:  https://ima.innube.online/?josé-albeiro-barrera-álvarez
+      (las dos últimas palabras son los apellidos)
       → entrada "Invitación para la familia de José Albeiro"
       → portada "Graduando: José Albeiro Barrera Álvarez"
+  - Anterior (sigue funcionando): ?n=José+Albeiro&a=Barrera+Álvarez
   - Libre: https://ima.innube.online/?para=Familia+Pérez&graduando=Laura+Pérez&cupos=4
 */
 const q = new URLSearchParams(location.search);
 const limpiar = (v: string | null) => (v ?? "").replace(/\s+/g, " ").trim().slice(0, 60);
-const nombres = limpiar(q.get("n"));
-const apellidos = limpiar(q.get("a"));
+/* "?josé-albeiro-barrera-álvarez" → nombres "José Albeiro", apellidos "Barrera Álvarez" */
+function desdeSlug(): [string, string] {
+  const crudo = location.search.slice(1);
+  if (!crudo || crudo.includes("=")) return ["", ""];
+  let texto = crudo;
+  try { texto = decodeURIComponent(crudo); } catch { /* se usa tal cual */ }
+  const palabras = texto
+    .split(/[-+_.\s]+/)
+    .filter(Boolean)
+    .map((p) => p.charAt(0).toLocaleUpperCase("es") + p.slice(1).toLocaleLowerCase("es"));
+  if (palabras.length < 2) return [limpiar(palabras.join(" ")), ""];
+  const corte = palabras.length >= 3 ? palabras.length - 2 : 1;
+  return [limpiar(palabras.slice(0, corte).join(" ")), limpiar(palabras.slice(corte).join(" "))];
+}
+const [slugNombres, slugApellidos] = desdeSlug();
+const nombres = limpiar(q.get("n")) || slugNombres;
+const apellidos = limpiar(q.get("a")) || slugApellidos;
 export const personal = {
   para: limpiar(q.get("para")) || (nombres ? `la familia de ${nombres}` : ""),
   graduando: limpiar(q.get("graduando")) || [nombres, apellidos].filter(Boolean).join(" "),
